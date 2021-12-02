@@ -12,18 +12,17 @@ import java.util.List;
 public class DependencyInjectionDemo {
     EmployeeService employeeService;
     List<Employee> employees = Arrays.asList(new Programmer(100, 1100), new Teacher(150, 2560));
-    EmployeeServiceImpl employeeServiceImpl;
+
 
    public double getSum(List<Employee> employees){
      return employeeService.totalBonus(employees) + employeeService.totalSalary(employees);
 
     }
 
-    public DependencyInjectionDemo(EmployeeService employeeService, EmployeeServiceImpl employeeServiceImpl){
+    public DependencyInjectionDemo(EmployeeService employeeService){
        this.employeeService = employeeService;
         System.out.println(getSum(employees));
-        this.employeeServiceImpl = employeeServiceImpl;
-        employeeServiceImpl.writeNum();
+        employeeService.writeNumber();
 
     }
 

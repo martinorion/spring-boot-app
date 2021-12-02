@@ -8,4 +8,6 @@ public interface EmployeeService {
     double totalSalary(List<Employee> employees);
 
     int  totalBonus(List<Employee> employees);
+
+    void writeNumber();
 }

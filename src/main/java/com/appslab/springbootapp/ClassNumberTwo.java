@@ -5,12 +5,12 @@ import org.springframework.stereotype.Component;
 @Component
 public class ClassNumberTwo {
     EmployeeService employeeService;
-    EmployeeServiceImpl employeeServiceImpl;
 
-    public ClassNumberTwo(EmployeeService employeeService, EmployeeServiceImpl employeeServiceImpl){
 
-        this.employeeServiceImpl = employeeServiceImpl;
-        employeeServiceImpl.writeNum();
+    public ClassNumberTwo(EmployeeService employeeService){
+
+        this.employeeService = employeeService;
+        employeeService.writeNumber();
 
     }
 }
