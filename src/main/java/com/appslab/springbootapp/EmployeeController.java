@@ -39,6 +39,7 @@ public class EmployeeController {
     double total = 100;
 
     @GetMapping("/snailGoes")
+    @RequestMapping()
     public double totalDistance(){
 
         return((total / heightStair) *(lengthStair + heightStair ));
