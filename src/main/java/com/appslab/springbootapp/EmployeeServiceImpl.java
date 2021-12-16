@@ -25,4 +25,9 @@ public class EmployeeServiceImpl implements EmployeeService  {
         number = number + 1;
         System.out.println(number);
     }
+
+    @Override
+    public double totalDistance(double heightStair, double lengthStair, double total) {
+        return (total/heightStair)*(lengthStair + heightStair);
+    }
 }

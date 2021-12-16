@@ -10,4 +10,6 @@ public interface EmployeeService {
     int  totalBonus(List<Employee> employees);
 
     void writeNumber();
+
+    double totalDistance(double heightStair, double lengthStair, double total);
 }

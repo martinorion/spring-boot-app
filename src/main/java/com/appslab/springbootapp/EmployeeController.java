@@ -3,9 +3,7 @@ package com.appslab.springbootapp;
 import com.appslab.springbootapp.Model.Employee;
 import com.appslab.springbootapp.Model.Programmer;
 import com.appslab.springbootapp.Model.Teacher;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.Arrays;
 import java.util.List;
@@ -38,11 +36,15 @@ public class EmployeeController {
     double lengthStair = 0.4;
     double total = 100;
 
-    @GetMapping("/snailGoes")
-    @RequestMapping()
-    public double totalDistance(){
 
-        return((total / heightStair) *(lengthStair + heightStair ));
+
+    @GetMapping(path = "/snailGoes1")
+
+    public double totalDistance(@RequestParam(value = "heightStair", defaultValue= "0,2") double heightStair, @RequestParam(value = "lengthStair", defaultValue= "0,4") double lengthStair, @RequestParam(value = "total", defaultValue= "100") double total){
+
+     return employeeService.totalDistance(heightStair, lengthStair, total);
     }
 
-}
+ }
+
+
