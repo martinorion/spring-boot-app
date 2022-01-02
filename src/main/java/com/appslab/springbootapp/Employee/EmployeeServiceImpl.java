@@ -1,4 +1,4 @@
-package com.appslab.springbootapp;
+package com.appslab.springbootapp.Employee;
 
 import com.appslab.springbootapp.Model.Employee;
 import org.springframework.stereotype.Service;

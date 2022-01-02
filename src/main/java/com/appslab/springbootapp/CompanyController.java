@@ -1,4 +1,4 @@
-package com.appslab.springbootapp;
+/*package com.appslab.springbootapp;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Controller;
@@ -16,15 +16,16 @@ import java.util.List;
 public class CompanyController {
 
 
-    CompanyService companyService;
+    CompanyServiceImpl companyServiceImpl;
+    CompanyRepository companyRepository;
 
-   @GetMapping("/company")
-    public void saveCompany(){
-       Company company = new Company();
-       companyService.saveCompany(company);
-
+    @GetMapping("/company")
+    public String saveCompany(){
+       Company company = new Company(0, "Martin");
+       companyServiceImpl.saveCompany(company);
+           return company.getName();
     }
-}
+}*/
 
     /*
     @Autowired

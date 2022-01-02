@@ -1,4 +1,4 @@
-package com.appslab.springbootapp;
+/*package com.appslab.springbootapp;
 
 import javax.persistence.Entity;
 import javax.persistence.*;
@@ -8,12 +8,27 @@ import javax.persistence.*;
 @Table(name = "users")
 public class Company {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer id;
 
-    private String email;
+    private String name;
 
-    private String password;
+    public Company(){
 
-    // getters and setters...
+    }
+
+    public Company(Integer id, String name){
+        super();
+        this.id = id;
+        this.name = name;
+    }
+
+    public String getName(){
+        return name;
+    }
+    public void setName(String name){
+        this.name = name;
+    }
+
 }
+*/
