@@ -13,4 +13,6 @@ public class ACompanyServiceImpl implements ACompanyService{
     public void saveACompany(ACompany aCompany) {
        aCompanyRepository.save(aCompany);
     }
+
+
 }

@@ -2,7 +2,6 @@ package com.appslab.springbootapp;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
@@ -13,9 +12,18 @@ public class ACompanyController {
 
     @GetMapping("/company")
     public String returnCompany(){
-        ACompany aCompany = new ACompany();
 
+        Address address = new Address();
+        ACompany aCompany = new ACompany();
         aCompany.setName("Michal");
+        address.setStreet("fff");
+        address.setZipCode(5);
+        address.setCity("addfas");
+        address.setState("dsfaf");
+
+
+
+
         ACompany aCompany1 = new ACompany();
         aCompany1.setName("Martin");
 
