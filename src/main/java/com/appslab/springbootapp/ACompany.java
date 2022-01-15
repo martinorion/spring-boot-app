@@ -1,9 +1,6 @@
 package com.appslab.springbootapp;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 @Entity
 public class ACompany {
@@ -12,16 +9,16 @@ public class ACompany {
     @GeneratedValue(strategy= GenerationType.AUTO)
     private Integer id;
 
-
     private String name;
+
+    @OneToOne(cascade = CascadeType.ALL)
+    @PrimaryKeyJoinColumn
+    private Address address;
 
     public ACompany(){}
     public ACompany(String name){
-        super();
-
         this.name = name;
     }
-
 
     public String getName(){
         return name;
