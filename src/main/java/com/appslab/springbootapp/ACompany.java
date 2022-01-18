@@ -11,8 +11,7 @@ public class ACompany {
 
     private String name;
 
-    @OneToOne(cascade = CascadeType.ALL)
-    @PrimaryKeyJoinColumn
+    @OneToOne()
     private Address address;
 
     public ACompany(){}
@@ -23,15 +22,16 @@ public class ACompany {
     public String getName(){
         return name;
     }
+
     public void setName(String name){
         this.name = name;
     }
 
-    public Integer getId() {
-        return id;
+    public Address getAddress() {
+        return address;
     }
 
-    public void setId(Integer id) {
-        this.id = id;
+    public void setAddress(Address address) {
+        this.address = address;
     }
 }

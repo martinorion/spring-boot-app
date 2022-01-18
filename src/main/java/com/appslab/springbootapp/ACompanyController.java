@@ -25,9 +25,11 @@ public class ACompanyController {
 
        // ACompany aCompany1 = new ACompany();
         // aCompany1.setName("Martin");
-
+      aCompany.setAddress(address);
+        addressService.saveAddress(address);
         aCompanyService.saveACompany(aCompany);
-         addressService.saveAddress(address);
+
+
         //aCompanyService.saveACompany(aCompany1);
         return aCompany.getName();
     }
