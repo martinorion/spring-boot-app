@@ -1,4 +1,6 @@
-package com.appslab.springbootapp;
+package com.appslab.springbootapp.ACompany;
+
+import com.appslab.springbootapp.Address.Address;
 
 import javax.persistence.*;
 

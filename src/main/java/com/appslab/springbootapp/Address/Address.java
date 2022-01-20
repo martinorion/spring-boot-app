@@ -1,4 +1,4 @@
-package com.appslab.springbootapp;
+package com.appslab.springbootapp.Address;
 
 import org.springframework.web.bind.annotation.RestController;
 

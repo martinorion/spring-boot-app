@@ -1,5 +1,6 @@
 package com.appslab.springbootapp.Employee;
 
+import com.appslab.springbootapp.ACompany.ACompany;
 import com.appslab.springbootapp.Model.Employee;
 
 import java.util.List;
@@ -12,4 +13,6 @@ public interface EmployeeService {
     void writeNumber();
 
     double totalDistance(double heightStair, double lengthStair, double total);
+
+    void saveACompany(Employee employee);
 }

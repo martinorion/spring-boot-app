@@ -1,4 +1,4 @@
-package com.appslab.springbootapp;
+package com.appslab.springbootapp.ACompany;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
