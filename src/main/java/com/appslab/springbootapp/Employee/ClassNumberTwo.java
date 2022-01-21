@@ -1,4 +1,4 @@
-package com.appslab.springbootapp.Employee;
+/*package com.appslab.springbootapp.Employee;
 
 import org.springframework.stereotype.Component;
 
@@ -13,4 +13,4 @@ public class ClassNumberTwo {
         employeeService.writeNumber();
 
     }
-}
+}*/

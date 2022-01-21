@@ -10,9 +10,11 @@ public interface EmployeeService {
 
     int  totalBonus(List<Employee> employees);
 
+
+    /*NEDOLEZITE
     void writeNumber();
-
     double totalDistance(double heightStair, double lengthStair, double total);
+*/
 
-    void saveACompany(Employee employee);
+    void saveAEmployee(Employee employee);
 }

@@ -1,4 +1,4 @@
-package com.appslab.springbootapp.Employee;
+/*package com.appslab.springbootapp.Employee;
 
 import com.appslab.springbootapp.Model.Employee;
 import com.appslab.springbootapp.Model.Programmer;
@@ -19,11 +19,13 @@ public class DependencyInjectionDemo {
 
     }
 
-    public DependencyInjectionDemo(EmployeeService employeeService){
+  public DependencyInjectionDemo(EmployeeService employeeService){
        this.employeeService = employeeService;
         System.out.println(getSum(employees));
-        employeeService.writeNumber();
+//        employeeService.writeNumber();
 
     }
 
+
 }
+*/
