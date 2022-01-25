@@ -1,29 +1,32 @@
 package com.appslab.springbootapp.Model;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import lombok.Getter;
+import lombok.Setter;
 
+import javax.persistence.*;
+
+@Getter
+@Setter
 @Entity
-public abstract class Employee {
+@Inheritance(strategy = InheritanceType.SINGLE_TABLE)
+@DiscriminatorColumn(name="TYPE_EMPLOYEE",
+        discriminatorType = DiscriminatorType.STRING)
+public class Employee {
     @Id
     @GeneratedValue(strategy= GenerationType.AUTO)
     private Integer id;
-    EmployeeType employeeType;
+
+
+
+    @Enumerated(value = EnumType.STRING)
+    private  EmployeeType employeeType;
+
 
     public Employee(){}
-    public Employee(EmployeeType employeeType){
+  /*  public Employee(EmployeeType employeeType){
         this.employeeType = employeeType;
-    }
+    }*/
 
-    public EmployeeType getEmployeeType() {
-        return employeeType;
-    }
-
-    public void setEmployeeType(EmployeeType employeeType) {
-        this.employeeType = employeeType;
-    }
 
     float salary;
     int bonus;
@@ -35,15 +38,11 @@ public abstract class Employee {
         this.bonus = bonus;
     }
 
+    /*
     public void getInfo(){
         System.out.println(employeeType.name + "’s salary is " + salary + " and bonus is " + bonus);
     }
+*/
 
-    public float getSalary(){
-        return salary;
 }
 
-  public int getBonus(){
-        return bonus;
-  }
-}

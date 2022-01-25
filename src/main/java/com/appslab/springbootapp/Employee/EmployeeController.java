@@ -15,19 +15,20 @@ import java.util.List;
 public class EmployeeController {
     EmployeeService employeeService;
     List<Employee> employees = Arrays.asList(new Programmer(100, 1100), new Teacher(150, 2560));
+
     public EmployeeController(EmployeeService employeeService) {
         this.employeeService = employeeService;
     }
 
     @GetMapping("/hello")
-    public String Hello(){
-      return "Hello Spring Boot";
+    public String Hello() {
+        return "Hello Spring Boot";
     }
 
     @GetMapping("/s1")
     public double totalSalary() {
 
-           return employeeService.totalSalary(employees);
+        return employeeService.totalSalary(employees);
     }
 
     @GetMapping("/s2")
@@ -36,12 +37,18 @@ public class EmployeeController {
     }
 
 
+@GetMapping("/employee")
+public void addEmployee(){
+    Employee employee = new Programmer( 2000, 50);
+    employeeService.saveAEmployee(employee);
+}
+
     @Autowired
     private EmployeeRepository employeeRepository;
 
     @PostMapping("/employee")
-    Employee newEmployee(@RequestBody Employee newEmployee) {
-        return employeeRepository.save(newEmployee);
+    void newEmployee(@RequestBody Employee newEmployee) {
+        employeeService.saveAEmployee(newEmployee);
     }
 
     /*NEDOLEZITE

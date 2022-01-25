@@ -1,13 +1,18 @@
 package com.appslab.springbootapp.Model;
 
-public class Programmer extends Employee {
+import lombok.NoArgsConstructor;
 
+import javax.persistence.DiscriminatorValue;
+import javax.persistence.Entity;
+
+
+@Entity
+@DiscriminatorValue(value = "PROGRAMMER")
+public class Programmer extends Employee {
+ public Programmer(){}
     public Programmer(float salary, int bonus){
         super(EmployeeType.PROGRAMMER, salary,bonus);
     }
-    private final float sumSalary = salary + bonus;
 
-    public void getInfo(){
-       System.out.println(employeeType + "’s salary is " + sumSalary);
-    }
+
 }

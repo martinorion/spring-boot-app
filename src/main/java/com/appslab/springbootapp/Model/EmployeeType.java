@@ -1,13 +1,9 @@
 package com.appslab.springbootapp.Model;
 
+import lombok.NoArgsConstructor;
+
+@NoArgsConstructor
 public enum EmployeeType {
 
-        TEACHER("Teacher"),
-        PROGRAMMER("Programmer"),
-        DRIVER("Driver");
-
-        String name;
-        EmployeeType(String name){
-                this.name = name;
-        }
+        TEACHER, PROGRAMMER, DRIVER
 }
