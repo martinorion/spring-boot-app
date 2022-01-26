@@ -2,11 +2,17 @@ package com.appslab.springbootapp.ACompany;
 
 import com.appslab.springbootapp.Address.Address;
 import com.appslab.springbootapp.Address.AddressService;
+import com.appslab.springbootapp.Model.Employee;
+import com.appslab.springbootapp.Model.EmployeeType;
+import com.appslab.springbootapp.Model.Teacher;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
+
+import java.util.Arrays;
+import java.util.List;
 
 @RestController
 public class ACompanyController {
@@ -28,9 +34,11 @@ public class ACompanyController {
         address.setZipCode(5);
         address.setCity("CCCC");
         address.setState("DDDD");
+        Employee employee = new Teacher(1500, 50);
+        Employee employee2 = new Teacher(2000, 300);
+        List<Employee> employees = Arrays.asList(employee, employee2);
+        ACompany aCompany1 = new ACompany("Martin",address,employees);
 
-        // ACompany aCompany1 = new ACompany();
-        // aCompany1.setName("Martin");
         aCompany.setAddress(address);
         addressService.saveAddress(address);
         aCompanyService.saveACompany(aCompany);
