@@ -1,11 +1,14 @@
 package com.appslab.springbootapp.Model;
 
 import com.appslab.springbootapp.ACompany.ACompany;
+import com.appslab.springbootapp.Course.Course;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.*;
+import java.util.List;
+import java.util.Set;
 
 @Getter
 @Setter
@@ -42,19 +45,25 @@ public class Employee {
     @JoinColumn(name = "fk_emp_id", referencedColumnName = "emp_id")
     private ACompany aCompany;*/
 
-
+/*
     @ManyToOne
     private ACompany aCompany;
+*/
 
-/* 2funkčné
-    @ManyToOne(fetch = FetchType.LAZY, targetEntity = ACompany.class)
-    @JoinColumn(name = "companyid")
+    @ManyToOne(fetch = FetchType.EAGER, targetEntity = ACompany.class)
+    @JoinColumn(name = "companyid", insertable = false, updatable = false)
     private ACompany aCompany;
 
     @Column(name = "companyidd")
     private Integer companyId;
 
 
+    @ManyToMany
+    @JoinTable(
+            name = "course_employee_id",
+            joinColumns = @JoinColumn(name = "employee_id"),
+            inverseJoinColumns = @JoinColumn(name = "course_id"))
+            List<Course> courseList;
     /*
     public void getInfo(){
         System.out.println(employeeType.name + "’s salary is " + salary + " and bonus is " + bonus);

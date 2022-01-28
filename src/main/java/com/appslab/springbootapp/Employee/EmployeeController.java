@@ -2,6 +2,8 @@ package com.appslab.springbootapp.Employee;
 
 import com.appslab.springbootapp.ACompany.ACompany;
 import com.appslab.springbootapp.ACompany.ACompanyRepository;
+import com.appslab.springbootapp.Course.Course;
+import com.appslab.springbootapp.Course.CourseServiceImpl;
 import com.appslab.springbootapp.Model.Employee;
 import com.appslab.springbootapp.Model.Programmer;
 import com.appslab.springbootapp.Model.Teacher;
@@ -38,10 +40,34 @@ public class EmployeeController {
 
 
 @GetMapping("/employee")
-public void addEmployee(){
-    Employee employee = new Programmer( 2000, 50);
-    employeeService.saveAEmployee(employee);
+public List<Employee> addEmployee(){
+   List<Employee> tada = employeeService.getAll();
+    Course course = new Course("armagedon", "dfdffd", "fdfs");
+    List<Course> courses;
+   return tada;
 }
+
+@Autowired
+    CourseServiceImpl courseService;
+
+    @GetMapping("/teamDeathmach")
+    public void saveEmp(){
+        Employee employee = new Teacher( 2500, 40);
+        employee.setCompanyId(3);
+        Course course = new Course();
+        course.setTitlee("Martin");
+        course.setStartTime("12.18.2020");
+        course.setEndTime("6.15.2022");
+        Course course1 = new Course();
+        course.setTitlee("Michal");
+        course.setStartTime("1561");
+        course.setEndTime("4444");
+        courseService.saveCourse(course);
+        courseService.saveCourse(course1);
+        List<Course> courses = Arrays.asList(course, course1);
+        employee.setCourseList(courses);
+        employeeService.saveAEmployee(employee);
+    }
 
     @Autowired
     private EmployeeRepository employeeRepository;

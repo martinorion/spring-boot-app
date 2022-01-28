@@ -28,6 +28,13 @@ public class EmployeeServiceImpl implements EmployeeService  {
         employeeRepository.save(employee);
     }
 
+    @Override
+    public List<Employee> getAll() {
+        return (List<Employee>) employeeRepository.findAll();
+    }
+
+
+
     /*NEDOLEZITE
     @Override
     public void writeNumber() {
