@@ -20,6 +20,17 @@ public class Employee {
    //@Column(name = "imd_id")
     private Integer id;
 
+    /*  Pokial nepouzijes @Column anotaciu kde zadefinujes name tak Hibernate pouzije pre nazov
+        stlpca nazov atributu. Cize v tomto pripade atribut employeeType namapovalo na EMPLOYEE_TYPE.
+        Lenze v @DiscriminatorColumn anotacii si zadefinoval ze ten dicriminator column sa ma volat
+        TYPE_EMPLOYEE. Takze ti to v tabulke Employee vytvorilo zbytocne 2 stlpce - EMPLOYEE_TYPE
+        a TYPE_EMPLOYEE pricom potrebujes iba jeden. Takze bud pridas @Column anotaciu so spravnym
+        name alebo nastavis spravne name v @DiscriminatorColumn. Ja som pridal @Column anotaciu.
+        To insertable/updateable false je tam preto, ze inak mi to davalo MappingException: Repeated
+        column in mapping for entity:.. . Uprimne, ani mne to nie je uplne jasne, ale tu niekto
+        pise preco to tak je: https://stackoverflow.com/a/53796697/8900927
+    */
+    @Column(name = "TYPE_EMPLOYEE", insertable = false, updatable = false)
     @Enumerated(value = EnumType.STRING)
     private  EmployeeType employeeType;
 
@@ -43,15 +54,18 @@ public class Employee {
     private ACompany aCompany;*/
 
 
-    @ManyToOne
-    private ACompany aCompany;
+/*    @ManyToOne
+    private ACompany aCompany;*/
 
-/* 2funkčné
     @ManyToOne(fetch = FetchType.LAZY, targetEntity = ACompany.class)
-    @JoinColumn(name = "companyid")
+    @JoinColumn(name = "companyId", insertable = false, updatable = false)
     private ACompany aCompany;
 
-    @Column(name = "companyidd")
+    /*  tie stlpce sa mozu volat rovnako, pretoze inak by ti vytvorilo zbytocne 2 stlpce v tabulke.
+        Takto to vytvori len jeden, do ktoreho bude ukladat company id a ktory tiez pouzije pri
+        definovani toho vztahu medzi Employee a ACompany.
+    */
+    @Column(name = "companyId")
     private Integer companyId;
 
 
