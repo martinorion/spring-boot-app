@@ -37,11 +37,27 @@ public class EmployeeController {
     }
 
 
-@GetMapping("/employee")
-public void addEmployee(){
-    Employee employee = new Programmer( 2000, 50);
-    employeeService.saveAEmployee(employee);
-}
+    /*
+        Teraz mi to uz vracia aj info o company. Problem este je, ze tam nastava infinite recursion.
+        Teda endpoint vrati Employee, Employee ma priradenu company, lenze company ma List<Employee>
+        a ten employee v tom liste ma zase company a ta ma zase list employee a tak dalej a tak dalej
+        az kym to nepadne na StackOverFlow errore. Mozes skusit pogooglit ako to vyriesit. Zvycajne
+        by sme ale nemali posielat priamo entity objekt ale vytvorit si novu triedu, ktora bude
+        mat len tie atributy, ktore chceme poslat, tzv. DTO (data transfer object) pretoze Controller
+        nema preco vediet o tom ako vyzera nasa DB. To je uz ale z takeho architekturalneho pohladu.
+        Co chcem povedat je, ze ten problem teraz nemusis riesit, ale ak chces, skus.
+     */
+
+    @GetMapping("/employee/all")
+    public List<Employee> getAll() {
+        return employeeService.getAll();
+    }
+
+    @GetMapping("/employee")
+    public void addEmployee(){
+        Employee employee = new Programmer( 2000, 50);
+        employeeService.saveAEmployee(employee);
+    }
 
     @Autowired
     private EmployeeRepository employeeRepository;
@@ -66,6 +82,6 @@ public void addEmployee(){
 
  */
 
- }
+}
 
 

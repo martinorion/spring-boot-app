@@ -4,6 +4,7 @@ import com.appslab.springbootapp.Model.Employee;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Service
@@ -20,12 +21,21 @@ public class EmployeeServiceImpl implements EmployeeService  {
     }
 
     public int totalBonus(List<Employee> employees){
-         return employees.stream().mapToInt(Employee::getBonus).sum();
+        return employees.stream().mapToInt(Employee::getBonus).sum();
     }
 
     @Override
     public void saveAEmployee(Employee employee) {
         employeeRepository.save(employee);
+    }
+
+    @Override
+    public List<Employee> getAll()
+    {
+        List<Employee> employees = new ArrayList<>();
+        employeeRepository.findAll().forEach(employees::add);
+
+        return employees;
     }
 
     /*NEDOLEZITE
