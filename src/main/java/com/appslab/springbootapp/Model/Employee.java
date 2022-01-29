@@ -8,7 +8,6 @@ import lombok.Setter;
 
 import javax.persistence.*;
 import java.util.List;
-import java.util.Set;
 
 @Getter
 @Setter
@@ -20,17 +19,13 @@ import java.util.Set;
 public class Employee {
     @Id
     @GeneratedValue(strategy= GenerationType.AUTO)
-   //@Column(name = "imd_id")
     private Integer id;
 
+    @Column(name = "TYPE_EMPLOYEE", insertable = false, updatable = false)
     @Enumerated(value = EnumType.STRING)
     private  EmployeeType employeeType;
 
   public Employee(){}
-
-  /*  public Employee(EmployeeType employeeType){
-        this.employeeType = employeeType;
-    }*/
 
     float salary;
     int bonus;
@@ -41,20 +36,11 @@ public class Employee {
         this.bonus = bonus;
     }
 
-   /* @ManyToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "fk_emp_id", referencedColumnName = "emp_id")
-    private ACompany aCompany;*/
-
-/*
-    @ManyToOne
-    private ACompany aCompany;
-*/
-
-    @ManyToOne(fetch = FetchType.EAGER, targetEntity = ACompany.class)
-    @JoinColumn(name = "companyid", insertable = false, updatable = false)
+    @ManyToOne(fetch = FetchType.LAZY, targetEntity = ACompany.class)
+    @JoinColumn(name = "companyId", insertable = false, updatable = false)
     private ACompany aCompany;
 
-    @Column(name = "companyidd")
+    @Column(name = "companyId")
     private Integer companyId;
 
 

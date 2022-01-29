@@ -29,7 +29,6 @@ public class EmployeeController {
 
     @GetMapping("/s1")
     public double totalSalary() {
-
         return employeeService.totalSalary(employees);
     }
 
@@ -39,13 +38,17 @@ public class EmployeeController {
     }
 
 
-@GetMapping("/employee")
-public List<Employee> addEmployee(){
-   List<Employee> tada = employeeService.getAll();
-    Course course = new Course("armagedon", "dfdffd", "fdfs");
-    List<Course> courses;
-   return tada;
-}
+    @GetMapping("/employee/all")
+    public List<Employee> getAll() {
+        List<Employee> tada = employeeService.getAll();
+        return tada;
+    }
+
+    @GetMapping("/employee")
+    public void addEmployee(){
+        Employee employee = new Programmer( 2000, 50);
+        employeeService.saveAEmployee(employee);
+    }
 
 @Autowired
     CourseServiceImpl courseService;
@@ -89,9 +92,16 @@ public List<Employee> addEmployee(){
 
      return employeeService.totalDistance(heightStair, lengthStair, total);
     }
-
  */
-
+    /*
+@GetMapping("/employee")
+public List<Employee> addEmployee(){
+   List<Employee> tada = employeeService.getAll();
+    Course course = new Course("armagedon", "dfdffd", "fdfs");
+    List<Course> courses;
+   return tada;
+}
+*/
  }
 
 

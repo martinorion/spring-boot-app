@@ -4,12 +4,11 @@ import com.appslab.springbootapp.Model.Employee;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Service
 public class EmployeeServiceImpl implements EmployeeService  {
-
-    //public int number = 0;
 
     @Autowired
     private EmployeeRepository employeeRepository;
@@ -30,7 +29,11 @@ public class EmployeeServiceImpl implements EmployeeService  {
 
     @Override
     public List<Employee> getAll() {
-        return (List<Employee>) employeeRepository.findAll();
+
+        List<Employee> employees = new ArrayList<>();
+        employeeRepository.findAll().forEach(employees::add);
+        return employees;
+
     }
 
 

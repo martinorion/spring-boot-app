@@ -18,5 +18,5 @@ public interface EmployeeService {
 
     void saveAEmployee(Employee employee);
 
-    List<Employee>getAll();
+    List<Employee> getAll();
 }
