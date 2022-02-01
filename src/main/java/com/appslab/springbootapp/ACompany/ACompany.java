@@ -17,7 +17,6 @@ public class ACompany {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-  //  @Column(name = "emp_id")
     private Integer id;
 
     private String name;
@@ -37,14 +36,14 @@ public class ACompany {
         this.employeeList = employeeList;
     }
 
-   /* nefunkcne
-    @ManyToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "fk_emp_id", referencedColumnName = "emp_id")
-    private List<Employee> employeeList;*/
-
-
    @OneToMany(mappedBy = "aCompany")
     private List<Employee>employeeList;
+
+
+
+
+
+
 
     /* 2funkčné   @OneToMany(
             cascade = CascadeType.ALL,
@@ -63,3 +62,7 @@ public class ACompany {
     private List<Employee> employeeList = new ArrayList<>();
 */
 }
+   /* nefunkcne
+    @ManyToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "fk_emp_id", referencedColumnName = "emp_id")
+    private List<Employee> employeeList;*/
